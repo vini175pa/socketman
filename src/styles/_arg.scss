@@ -1,0 +1,38 @@
+
+.arg {
+  padding: 6px 10px;
+  background: $json-background;
+  border-radius: 4px;
+  color: #fff;
+  // .arg-index {
+  //   padding: 7px;
+  //   background: #e3e3e3;
+  //   border-radius: 4px 0 0 4px;
+  // }
+}
+
+.arg-el-brace,
+.arg-el-brackets{
+  color: #fff
+}
+
+.arg-el-string{
+  color: $json-string;
+}
+
+.arg-el-boolean{
+  color: $json-boolean;
+}
+
+.arg-el-number {
+  color: $json-number;
+}
+
+.arg-el-colon {
+  color: $json-colon;
+}
+
+.arg-el-null {
+  color: $json-null;
+  font-weight: bold;
+}

@@ -1,0 +1,263 @@
+@import 'variables';
+@import 'bootstrap';
+@import 'arg';
+
+$border-color: #DBDBDB;
+
+
+.fill-width{
+  width: 100%;
+}
+
+.s-label{
+  display: block;
+  border: 1px solid #7ab800;
+  font-weight: bold;
+  color: #7ab800;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+.app-header {
+  background: #333;
+  height: 50px;
+  color: #fff;
+  h2 {
+    text-align: center;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: normal;
+  }
+}
+
+.app-container {
+  padding: 10px;
+}
+
+.app-content{
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.app-head {
+  background: #FAFAFA;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid #EFEFEF;
+
+  .socket-url{
+    padding: 10px;
+
+    .form-control {
+      height: 38px;
+    }
+
+    .btn-params{
+      font-size: 13px;
+      padding-left: 15px;
+      padding-right: 15px;
+      background: #F0F0F0;
+      color: #666;
+    }
+
+    button {
+      height: 38px;
+    }
+
+    .btn-connect {
+      width: 100%;
+      font-weight: bold;
+    }
+  }
+
+
+  .tabs-header {
+    display: table;
+    width: 100%;
+    
+
+    > ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      > li {
+        float: left;
+        > a {
+          display: block;
+          padding: 12px;
+          color: #999;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        &.socket-status{
+          float: right;
+          padding: 8px;
+          margin-right: 8px;
+
+          
+        }
+
+        &.active > a{
+          padding-bottom: 9px;
+          border-bottom: 3px solid $primaryColor;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+
+.message-composer{
+  padding: 15px;
+  border-bottom: 1px solid $border-color;
+}
+
+.messages{
+  &:hover {
+    .message > .message-header{
+      background: #f8f8f8;
+    }
+  }
+
+  .message {
+    border-bottom: 1px solid $border-color;
+    width: 100%;
+
+    > .message-header{
+      display: flex;
+      flex-direction: row;
+      min-height: 30px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    
+
+    .message-col {
+      float: left;
+      padding: 15px;
+
+      &.message-event {
+        color: #F47023;
+        font-weight: bold;
+        min-width: 15%;
+        max-width: 15%;
+      }
+
+      &.message-arguments {
+        display: flex;
+        flex: 1 1 auto;
+        &, span{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+        }
+      }
+
+      &.message-type {
+        > span {
+          @extend .s-label;
+          float: right;
+        }
+      }
+    }
+
+    .arg{
+      margin-right: 5px;
+      height: 31px;
+      float: left;
+    }
+
+    &:hover > .message-header {
+      background: #fff;
+    }
+
+    &:last-child{
+      border-bottom-width: 0;
+      border-radius: 0 0 4px 4px;
+    }
+  }
+}
+
+.m-input{
+  background: none;
+  border-width: 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  transition: border-color .1s;
+
+  &:hover {
+    border-color: #ccc;
+  }
+
+  &:focus{
+    border-color: $primaryColor;
+    border-bottom-width: 2px;
+  }
+}
+
+.message-composer {
+  .m-input {
+    font-size: 18px;
+  }
+
+  textarea {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .input-argument-row{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    > .btn-icon {
+      margin-left: 5px;
+      width: 37px;
+      height: 37px;
+      background: #eee;
+      font-size: 18px;
+      font-weight: bold;
+      color: #999;
+
+      &:hover {
+        color: $primaryColor;
+        background: #ddd;
+      }
+    }
+
+    .argument-type-callback{
+      background: $primaryColor;
+      color: #fff;
+    }
+
+    .argument-type-json{
+      background: $json-number;
+      color: #fff;
+    }
+
+    .argument-type-string{
+      background: $json-background;
+      color: #fff;
+    }
+
+    .btn-argument-type {
+      margin-left: 15px;
+    }
+
+    .input-argument-callback{
+      color: $primaryColor;
+    }
+    
+  }
+}
+
+
