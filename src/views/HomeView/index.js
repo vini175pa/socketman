@@ -19,8 +19,10 @@ const events = [{
 },
 {
   event: "Post:new",
+  expanded: true,
   args: [
-    [ 2, 3, "a"]
+    [ 2, 3, "a", { id: "asdasd", title: "Lorem ipsum dolor iset"}],
+    "teste"
   ],
   type: "Callback"
 },
@@ -53,6 +55,10 @@ class HomeView extends React.Component {
       <div>
         <MessageComposer />
         <div className="messages">
+          <div className="messages-header">
+            <div className="message-event-header">Evento</div>
+            <div className="message-body-header">Dados recebidos</div>
+          </div>
           { events.map((message, i) => ( <Message key={i} message={message}/> ) ) }
         </div>
       </div>

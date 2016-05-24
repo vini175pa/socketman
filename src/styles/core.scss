@@ -122,50 +122,56 @@ $border-color: #DBDBDB;
 
 .messages{
   &:hover {
-    .message > .message-header{
-      background: #f8f8f8;
+    .message{
+      background: #f8f8f8;   
+    }
+  }
+
+  .messages-header{
+    background: #f6f6f6;
+    width: 100%;
+    display: flex;
+    color: #666;
+
+    > div {
+      padding: 15px;
+    }
+
+    .message-event-header{
+      width: 15%;
     }
   }
 
   .message {
-    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    min-height: 30px;
     width: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    transition: background .2s;
 
-    > .message-header{
-      display: flex;
-      flex-direction: row;
-      min-height: 30px;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    
-
-    .message-col {
-      float: left;
+    .message-event {
+      color: #F47023;
+      font-weight: bold;
+      min-width: 15%;
+      max-width: 15%;
       padding: 15px;
+    }
 
-      &.message-event {
-        color: #F47023;
-        font-weight: bold;
-        min-width: 15%;
-        max-width: 15%;
+    .message-body {
+      display: flex;
+      flex: 1 1 auto;
+
+      .message-arguments{
+        padding: 15px;
       }
 
-      &.message-arguments {
-        display: flex;
-        flex: 1 1 auto;
-        &, span{
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis; 
-        }
-      }
-
-      &.message-type {
-        > span {
-          @extend .s-label;
-          float: right;
-        }
+      .message-arguments,
+      .message-arguments span{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
       }
     }
 
@@ -175,12 +181,39 @@ $border-color: #DBDBDB;
       float: left;
     }
 
-    &:hover > .message-header {
+    &.expanded {
+      cursor: auto;
+      background: #fff;
+  
+      &,
+      & + .message {
+        border-top-color: #ccc;
+      }
+
+      .message-arguments{
+        display: block;
+        width: 100%;
+      }
+
+      .arg {
+        float: none;
+        height: auto;
+        margin-bottom: 10px;
+
+        .arg-el-array-element,
+        .arg-el-object-element {
+          display: block;
+          padding-left: 10px;
+        }
+
+      } 
+    }
+
+    &:hover{
       background: #fff;
     }
 
     &:last-child{
-      border-bottom-width: 0;
       border-radius: 0 0 4px 4px;
     }
   }
